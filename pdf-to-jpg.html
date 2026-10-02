@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF to JPG - PDF Pro</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Icons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+    <!-- Background Elements -->
+    <div class="ambient-light source-1"></div>
+    <div class="ambient-light source-2"></div>
+
+    <!-- Header -->
+    <header id="main-header">
+        <div class="container nav-container">
+                                                <a href="index.html" class="brand-logo" style="display: flex; align-items: center; text-decoration: none;">
+                <img src="image.png" alt="PDF2Pro Logo" class="main-logo-img">
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html#tools" class="nav-link">All Tools</a>
+                <a href="index.html#pricing" class="nav-link">Pricing</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">
+                    <ion-icon name="moon-outline"></ion-icon>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="conversion-page-main">
+        <div class="container conversion-layout">
+
+            <!-- Left Ad Column -->
+            <aside class="ad-column left-ad">
+                <div class="ad-space glass-panel">
+                    <span class="ad-label">Advertisement</span>
+                    <!-- Google AdSense Placeholder -->
+                    <div class="mock-ad vertical">
+                        <ion-icon name="megaphone-outline"></ion-icon>
+                        <p>Google AdSense<br>300x600</p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Center Content: The Converter -->
+            <section class="converter-center">
+                <div class="converter-header">
+                    <div class="tool-badge" id="dynamic-tool-badge">
+                        <ion-icon name="images-outline"></ion-icon> PDF to JPG
+                    </div>
+                    <h1 class="hero-heading" id="dynamic-tool-title">
+                        PDF to <span class="text-gradient">JPG</span>
+                    </h1>
+                    <p class="hero-subtext" id="dynamic-tool-desc">
+                        Extract images or save PDF pages as high-quality JPGs.
+                    </p>
+                </div>
+
+                <div class="converter-workspace glass-panel">
+                    <!-- Step 1: Upload (Default State) -->
+                    <div class="upload-zone" id="upload-zone">
+                        <div class="zone-glow"></div>
+                        <div class="upload-icon-container">
+                            <ion-icon name="cloud-upload-outline" class="upload-icon"></ion-icon>
+                            <ion-icon name="document-outline" class="float-icon doc1"></ion-icon>
+                            <ion-icon name="image-outline" class="float-icon doc2"></ion-icon>
+                        </div>
+                        <h3>Choose files or drag & drop</h3>
+                        <p>Supported: PDF (Max 50MB)</p>
+
+                        <div class="upload-actions">
+                            <button class="btn btn-primary btn-lg"
+                                onclick="document.getElementById('file-input').click()">
+                                Select Files
+                            </button>
+                            <div class="cloud-upload-options">
+                                <button class="btn btn-icon-only" title="Google Drive"><ion-icon name="logo-google"
+                                        style="color: #4285F4;"></ion-icon></button>
+                                <button class="btn btn-icon-only" title="Dropbox"><ion-icon name="logo-dropbox"
+                                        style="color: #0061FF;"></ion-icon></button>
+                            </div>
+                        </div>
+                        <input type="file" id="file-input" hidden multiple>
+                    </div>
+
+                    <!-- Step 2: Options & Processing (Hidden by default) -->
+                    <div class="conversion-active-state" id="conversion-state" style="display: none;">
+
+                        <!-- File List -->
+                        <div class="selected-files-list" id="file-list-container">
+                            <!-- Dynamic File Items go here -->
+                        </div>
+
+                        <!-- Target Format Selector (Removed for specific conversion pages) -->
+                        <div class="conversion-options-bar">
+                            <span class="options-label" id="dynamic-conversion-label"
+                                style="font-size: 1.1rem; color: var(--text-main);">Click convert to get your <b>PDF to JPG</b></span>
+                            <button class="btn btn-primary btn-lg convert-trigger-btn" id="start-conversion-btn"
+                                style="margin-left: auto;">
+                                Convert Now <ion-icon name="flash-outline"></ion-icon>
+                            </button>
+                        </div>
+
+                        <!-- Progress Bar (Hidden initially) -->
+                        <div class="progress-container" id="progress-container" style="display: none;">
+                            <div class="progress-details">
+                                <span class="status-text">Processing your file...</span>
+                                <span class="percentage" id="progress-percent">0%</span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-fill" id="progress-bar"></div>
+                            </div>
+                        </div>
+
+                        <!-- Success State (Hidden initially) -->
+                        <div class="success-container" id="success-container" style="display: none;">
+                            <div class="success-icon-wrap">
+                                <ion-icon name="checkmark-circle"></ion-icon>
+                            </div>
+                            <h3>Converted!</h3>
+                            <div class="success-actions">
+                                <a id="download-result-btn" href="#" class="btn btn-primary btn-lg shadow-glow"
+                                    download="converted-file.pdf">
+                                    <ion-icon name="download-outline"></ion-icon> Download
+                                </a>
+                                <button class="btn btn-outline shadow-glow" id="preview-result-btn" style="border-color: var(--primary-500); color: var(--primary-600);">
+                                    <ion-icon name="eye-outline"></ion-icon> Preview
+                                </button>
+                                <button class="btn btn-outline" id="convert-another-btn">
+                                    Convert Another
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Top/Bottom Center Ad Space -->
+                <div class="ad-space glass-panel horizontal-ad-banner">
+                    <span class="ad-label">Sponsored by Partners</span>
+                    <div class="mock-ad horizontal">
+                        <p>Your Company Ad Here<br>728x90</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Ad Column -->
+            <aside class="ad-column right-ad">
+                <div class="ad-space glass-panel">
+                    <span class="ad-label">Advertisement</span>
+                    <!-- Google AdSense Placeholder -->
+                    <div class="mock-ad vertical">
+                        <ion-icon name="megaphone-outline"></ion-icon>
+                        <p>Google AdSense<br>300x600</p>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer" style="padding-top: 3rem; margin-top: 2rem;">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none;">
+                <p>&copy; 2024 PDF Pro Inc.</p>
+                <div class="footer-links" style="display: flex; gap: 1.5rem;">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="converter-engine.js"></script>
+</body>
+
+</html>
