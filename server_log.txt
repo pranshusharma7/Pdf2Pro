@@ -1,0 +1,37 @@
+[Server] "GET / HTTP/1.1" 200 -
+[Server] "GET / HTTP/1.1" 200 -
+[Server] "GET /pdf-to-excel.html HTTP/1.1" 200 -
+[Server] "GET /converter-engine.js HTTP/1.1" 304 -
+
+╔══════════════════════════════════════════════╗
+║     PDF Converter Pro - Dev Server           ║
+╠══════════════════════════════════════════════╣
+║                                              ║
+║  🌐 Server running at:                       ║
+║     http://localhost:3000                    ║
+║                                              ║
+║  📄 Main Page:                               ║
+║     http://localhost:3000/index.html         ║
+║                                              ║
+║  🔐 Auth Page:                               ║
+║     http://localhost:3000/auth.html          ║
+║                                              ║
+║  🔑 GitHub OAuth: ✅ Configured    ║
+║                                              ║
+╚══════════════════════════════════════════════╝
+    
+Handling /api/convert/pdf-to-excel...
+Sending 1 file(s) to ConvertAPI...
+[pdf-to-excel] → POST https://v2.convertapi.com/convert/pdf/to/xlsx | secret ends: ...IdnvaC | files: 1
+[pdf-to-excel] ConvertAPI HTTP 500
+[pdf-to-excel] Raw response: {'Code': 5001, 'Message': 'Conversion failed. PDF has no tables to extract.'}
+[pdf-to-excel] ConvertAPI error code=5001 msg=Conversion failed. PDF has no tables to extract.
+[Server] "POST /api/convert/pdf-to-excel HTTP/1.1" 500 -
+Handling /api/convert/pdf-to-excel...
+Sending 1 file(s) to ConvertAPI...
+[pdf-to-excel] → POST https://v2.convertapi.com/convert/pdf/to/xlsx | secret ends: ...IdnvaC | files: 1
+[pdf-to-excel] ConvertAPI HTTP 200
+[pdf-to-excel] Raw response: {'ConversionCost': 1, 'Files': [{'FileName': 'FSI-2023-DOWNLOAD.xlsx', 'FileExt': 'xlsx', 'FileSize': 33812, 'FileData': 'UEsDBBQACAAIAHhaXFwAAAAAAAAAAHYCAAAPABEAeGwvd29ya2Jvb2sueG1sVVQNAAdQz6JpUM+iaVDPommNUrFuwjAU3Cv1HyzvJYkDCBABqWqrslQdKMwmfiEWjh3ZTgN/3+eg0FTt0MnvLufTvYuX63OlyCdYJ43OaDKKKQGdGyH1Ma
+[pdf-to-excel] Saved FSI-2023-DOWNLOAD.xlsx (33812 bytes)
+[Server] "POST /api/convert/pdf-to-excel HTTP/1.1" 200 -
+[Server] "GET /api/download/FSI-2023-DOWNLOAD.xlsx HTTP/1.1" 200 -
