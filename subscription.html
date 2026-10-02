@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing & Plans — PDF Converter Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        /* ===== SUBSCRIPTION PAGE STYLES ===== */
+        .sub-nav {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .sub-nav .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .sub-nav .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        .sub-nav .brand span {
+            color: var(--primary-500);
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            padding: 0.5rem 1rem;
+            border-radius: 0.75rem;
+            border: 1px solid var(--border-color);
+            background: var(--bg-surface);
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            border-color: var(--primary-500);
+            color: var(--primary-500);
+        }
+
+        /* HERO */
+        .hero-sub {
+            padding: 5rem 0 3rem;
+            text-align: center;
+            background: var(--bg-body);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-sub::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-sub .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(168, 85, 247, 0.12));
+            color: var(--primary-500);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        .hero-sub h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero-sub h1 .grad {
+            background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-sub p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.6;
+        }
+
+        /* BILLING TOGGLE */
+        .billing-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 100px;
+            padding: 0.4rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .bill-opt {
+            padding: 0.55rem 1.6rem;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            position: relative;
+        }
+
+        .bill-opt.active {
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            color: white;
+            box-shadow: 0 2px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .save-badge {
+            font-size: 0.65rem;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            padding: 0.15rem 0.5rem;
+            border-radius: 100px;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+            vertical-align: middle;
+            margin-left: 0.3rem;
+        }
+
+        /* PLAN CARDS */
+        .plans-section {
+            padding: 0 0 5rem;
+            background: var(--bg-body);
+        }
+
+        .plans-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media(max-width:1100px) {
+            .plans-grid {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 800px;
+            }
+        }
+
+        @media(max-width:650px) {
+            .plans-grid {
+                grid-template-columns: 1fr;
+                max-width: 480px;
+            }
+        }
+
+        .plan-card {
+            background: var(--bg-surface);
+            border: 1.5px solid var(--border-color);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .plan-card.popular {
+            border-color: #6366f1;
+            background: linear-gradient(160deg, rgba(99, 102, 241, 0.04) 0%, var(--bg-surface) 60%);
+            box-shadow: 0 8px 40px rgba(99, 102, 241, 0.12);
+        }
+
+        .popular-tag {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            color: white;
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 0.3rem 1.2rem;
+            border-radius: 100px;
+            white-space: nowrap;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .plan-name {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.75rem;
+        }
+
+        .plan-price {
+            display: flex;
+            align-items: flex-end;
+            gap: 0.2rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .plan-price .amount {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            color: var(--text-main);
+            line-height: 1;
+        }
+
+        .plan-price .currency {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            align-self: flex-start;
+            margin-top: 0.5rem;
+        }
+
+        .plan-price .period {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.3rem;
+        }
+
+        .plan-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            min-height: 2.5rem;
+            line-height: 1.5;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .plan-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        .plan-features li .check {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            flex-shrink: 0;
+        }
+
+        .plan-features li .check.yes {
+            background: rgba(99, 102, 241, 0.12);
+            color: #6366f1;
+        }
+
+        .plan-features li .check.no {
+            background: rgba(0, 0, 0, 0.06);
+            color: #94a3b8;
+        }
+
+        .plan-cta {
+            width: 100%;
+            padding: 0.9rem;
+            border-radius: 0.85rem;
+            border: none;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .plan-cta.primary {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            box-shadow: 0 4px 16px rgba(79, 70, 229, 0.3);
+        }
+
+        .plan-cta.primary:hover {
+            box-shadow: 0 8px 24px rgba(79, 70, 229, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .plan-cta.outline {
+            background: transparent;
+            border: 1.5px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .plan-cta.outline:hover {
+            border-color: var(--primary-500);
+            color: var(--primary-500);
+        }
+
+        .trial-note {
+            text-align: center;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 2.5rem;
+        }
+
+        /* SECTION COMMONS */
+        .sub-section {
+            padding: 5rem 0;
+        }
+
+        .sub-section.alt {
+            background: var(--bg-alt);
+        }
+
+        .section-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary-500);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
+            max-width: 560px;
+            line-height: 1.65;
+        }
+
+        .section-head {
+            margin-bottom: 3.5rem;
+        }
+
+        /* COMPARISON TABLE */
+        .compare-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+
+        .compare-table th {
+            padding: 1.2rem 1.5rem;
+            text-align: center;
+            font-size: 0.88rem;
+            font-weight: 700;
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .compare-table th:first-child {
+            text-align: left;
+        }
+
+        .compare-table td {
+            padding: 1rem 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-main);
+            background: var(--bg-surface);
+        }
+
+        .compare-table td:first-child {
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .compare-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .compare-table tr:hover td {
+            background: rgba(99, 102, 241, 0.03);
+        }
+
+        .compare-table .pro-col {
+            color: #6366f1;
+            font-weight: 700;
+        }
+
+        .compare-table .yes {
+            color: #22c55e;
+            font-size: 1.1rem;
+        }
+
+        .compare-table .no {
+            color: #94a3b8;
+            font-size: 1rem;
+        }
+
+        th.highlight {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(168, 85, 247, 0.05)) !important;
+            color: #6366f1 !important;
+        }
+
+
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .sec-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 1.2rem;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .sec-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .sec-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+
+        .sec-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .sec-card p {
+            font-size: 0.86rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-q {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.3rem 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            gap: 1rem;
+        }
+
+        .faq-q ion-icon {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .faq-item.open .faq-q ion-icon {
+            transform: rotate(180deg);
+            color: var(--primary-500);
+        }
+
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .faq-a-inner {
+            padding: 0 1.5rem 1.3rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .faq-item.open .faq-a {
+            max-height: 300px;
+        }
+
+        /* PAYMENT */
+        .payment-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .coupon-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .coupon-input {
+            flex: 1;
+            padding: 0.85rem 1.2rem;
+            border-radius: 0.85rem;
+            border: 1.5px solid var(--border-color);
+            background: var(--bg-body);
+            font-size: 0.95rem;
+            font-family: inherit;
+            color: var(--text-main);
+            outline: none;
+            transition: border-color 0.25s;
+        }
+
+        .coupon-input:focus {
+            border-color: var(--primary-500);
+        }
+
+        .coupon-btn {
+            padding: 0.85rem 1.5rem;
+            border-radius: 0.85rem;
+            border: none;
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            font-family: inherit;
+            transition: box-shadow 0.2s;
+        }
+
+        .coupon-btn:hover {
+            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.35);
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .pay-method {
+            background: var(--bg-body);
+            border: 1px solid var(--border-color);
+            border-radius: 0.6rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+
+        .policy-row {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .policy-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .policy-badge ion-icon {
+            color: #22c55e;
+            font-size: 1rem;
+        }
+
+        /* CTA BANNER */
+        .cta-banner {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 40%, #a855f7 70%, #ec4899 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            left: -20%;
+            width: 140%;
+            height: 220%;
+            background: radial-gradient(ellipse, rgba(255, 255, 255, 0.07) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .cta-banner h2 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            position: relative;
+        }
+
+        .cta-banner p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .cta-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .cta-btn-white {
+            padding: 0.9rem 2.5rem;
+            border-radius: 0.85rem;
+            background: white;
+            color: #4f46e5;
+            font-weight: 800;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .cta-btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-btn-ghost {
+            padding: 0.9rem 2.5rem;
+            border-radius: 0.85rem;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Dark mode sync -->
+    <script>
+        if (localStorage.getItem('theme') === 'dark-mode' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme:dark)').matches)) { document.body.classList.add('dark-mode'); }
+    </script>
+
+    <!-- NAV -->
+    <nav class="sub-nav">
+        <div class="nav-inner">
+            <div class="brand">PDF <span>Pro</span></div>
+            <a href="index.html" class="back-btn">
+                <ion-icon name="arrow-back-outline"></ion-icon> Back to Home
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero-sub">
+        <div class="badge"><ion-icon name="sparkles"></ion-icon> Simple, Honest Pricing</div>
+        <h1>Choose Your <span class="grad">Perfect Plan</span></h1>
+        <p>Start free. Upgrade when you're ready. Cancel anytime — no drama, no hidden fees.</p>
+        <div class="billing-toggle">
+            <button class="bill-opt active" id="bill-monthly">Monthly</button>
+            <button class="bill-opt" id="bill-yearly">Yearly <span class="save-badge">Save 30%</span></button>
+        </div>
+    </section>
+
+    <!-- PLAN CARDS -->
+    <section class="plans-section">
+        <div class="plans-grid">
+            <!-- Free -->
+            <div class="plan-card">
+                <div class="plan-name">Free</div>
+                <div class="plan-price"><span class="currency">₹</span><span class="amount">0</span><span
+                        class="period">/mo</span></div>
+                <div class="plan-desc">Perfect for occasional use. No card needed.</div>
+                <ul class="plan-features">
+                    <li><span class="check yes">✓</span> 5 conversions per day</li>
+                    <li><span class="check yes">✓</span> 10 MB file size limit</li>
+                    <li><span class="check yes">✓</span> Basic PDF tools</li>
+                    <li><span class="check no">✗</span> Watermark on output</li>
+                    <li><span class="check no">✗</span> No batch upload</li>
+                    <li><span class="check no">✗</span> No OCR</li>
+                    <li><span class="check no">✗</span> Standard speed</li>
+                </ul>
+                <button class="plan-cta outline" onclick="window.location.href='auth.html'">Get Started Free</button>
+            </div>
+            <!-- Plus -->
+            <div class="plan-card">
+                <div class="plan-name">Plus</div>
+                <div class="plan-price"><span class="currency">₹</span><span class="amount plus-monthly">20</span><span
+                        class="period">/mo</span></div>
+                <div class="plan-desc">Great for students and light users.</div>
+                <ul class="plan-features">
+                    <li><span class="check yes">✓</span> 50 conversions per day</li>
+                    <li><span class="check yes">✓</span> 50 MB file size limit</li>
+                    <li><span class="check yes">✓</span> No watermark</li>
+                    <li><span class="check yes">✓</span> Basic PDF tools</li>
+                    <li><span class="check no">✗</span> No batch upload</li>
+                    <li><span class="check no">✗</span> No OCR</li>
+                    <li><span class="check no">✗</span> Standard speed</li>
+                </ul>
+                <button class="plan-cta outline" onclick="initiatePayment('Plus', 'plus-monthly')">Get Plus</button>
+            </div>
+            <!-- Pro -->
+            <div class="plan-card popular">
+                <div class="popular-tag">⭐ Most Popular</div>
+                <div class="plan-name">Pro</div>
+                <div class="plan-price"><span class="currency">₹</span><span class="amount pro-monthly">199</span><span
+                        class="period">/mo</span></div>
+                <div class="plan-desc">For professionals who need power and speed.</div>
+                <ul class="plan-features">
+                    <li><span class="check yes">✓</span> Unlimited conversions</li>
+                    <li><span class="check yes">✓</span> 500 MB file size limit</li>
+                    <li><span class="check yes">✓</span> No watermark</li>
+                    <li><span class="check yes">✓</span> Priority processing</li>
+                    <li><span class="check yes">✓</span> Batch upload (50 files)</li>
+                    <li><span class="check yes">✓</span> AI OCR (20+ languages)</li>
+                    <li><span class="check yes">✓</span> Cloud integrations</li>
+                </ul>
+                </ul>
+                <button class="plan-cta primary" onclick="initiatePayment('Pro', 'pro-monthly')">Get Pro</button>
+            </div>
+            <!-- Business -->
+            <div class="plan-card">
+                <div class="plan-name">Business</div>
+                <div class="plan-price"><span class="currency">₹</span><span class="amount biz-monthly">799</span><span
+                        class="period">/mo</span></div>
+                <div class="plan-desc">For teams that need automation and API access.</div>
+                <ul class="plan-features">
+                    <li><span class="check yes">✓</span> Everything in Pro</li>
+                    <li><span class="check yes">✓</span> 1 GB file size limit</li>
+                    <li><span class="check yes">✓</span> Batch upload (200 files)</li>
+                    <li><span class="check yes">✓</span> REST API access</li>
+                    <li><span class="check yes">✓</span> Team workspace (10 seats)</li>
+                    <li><span class="check yes">✓</span> Priority support 24/7</li>
+                    <li><span class="check yes">✓</span> Custom webhooks</li>
+                </ul>
+                </ul>
+                <button class="plan-cta outline" onclick="initiatePayment('Business', 'biz-monthly')">Get
+                    Business</button>
+            </div>
+        </div>
+        <p class="trial-note">🔒 No credit card required for Free plan &nbsp;·&nbsp; Cancel anytime &nbsp;·&nbsp; Secure
+            payment via PhonePe</p>
+    </section>
+
+    <!-- COMPARISON TABLE -->
+    <section class="sub-section alt">
+        <div class="section-inner">
+            <div class="section-head">
+                <div class="section-label">Compare Plans</div>
+                <h2 class="section-title">Everything side by side</h2>
+                <p class="section-subtitle">Know exactly what you get before you pay. Zero surprises.</p>
+            </div>
+            <div style="overflow-x:auto;">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Free</th>
+                            <th>Plus</th>
+                            <th class="highlight">Pro ⭐</th>
+                            <th>Business</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>File Size Limit</td>
+                            <td>10 MB</td>
+                            <td>50 MB</td>
+                            <td class="pro-col">500 MB</td>
+                            <td>1 GB</td>
+                        </tr>
+                        <tr>
+                            <td>Conversions / Day</td>
+                            <td>5</td>
+                            <td>50</td>
+                            <td class="pro-col">Unlimited</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>Processing Speed</td>
+                            <td>Normal</td>
+                            <td>Normal</td>
+                            <td class="pro-col">Fast ⚡</td>
+                            <td>Ultra Fast 🚀</td>
+                        </tr>
+                        <tr>
+                            <td>Watermark</td>
+                            <td><span class="no">✗</span> Yes</td>
+                            <td><span class="yes">✓</span> None</td>
+                            <td class="pro-col"><span class="yes">✓</span> None</td>
+                            <td><span class="yes">✓</span> None</td>
+                        </tr>
+                        <tr>
+                            <td>Batch Upload</td>
+                            <td><span class="no">✗</span></td>
+                            <td><span class="no">✗</span></td>
+                            <td class="pro-col"><span class="yes">✓</span> 50 files</td>
+                            <td><span class="yes">✓</span> 200 files</td>
+                        </tr>
+                        <tr>
+                            <td>AI OCR</td>
+                            <td><span class="no">✗</span></td>
+                            <td><span class="no">✗</span></td>
+                            <td class="pro-col"><span class="yes">✓</span></td>
+                            <td><span class="yes">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>eSign / Signature</td>
+                            <td><span class="no">✗</span></td>
+                            <td><span class="no">✗</span></td>
+                            <td class="pro-col"><span class="yes">✓</span></td>
+                            <td><span class="yes">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Cloud Storage</td>
+                            <td><span class="no">✗</span></td>
+                            <td><span class="no">✗</span></td>
+                            <td class="pro-col"><span class="yes">✓</span></td>
+                            <td><span class="yes">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>REST API Access</td>
+                            <td><span class="no">✗</span></td>
+                            <td><span class="no">✗</span></td>
+                            <td><span class="no">✗</span></td>
+                            <td class="pro-col"><span class="yes">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Team Seats</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td class="pro-col">1</td>
+                            <td>10 seats</td>
+                        </tr>
+                        <tr>
+                            <td>Support</td>
+                            <td>Email</td>
+                            <td>Email</td>
+                            <td class="pro-col">Priority Email</td>
+                            <td>24/7 Live Chat</td>
+                        </tr>
+                        <tr>
+                            <td>Ad-Free Experience</td>
+                            <td><span class="no">✗</span></td>
+                            <td><span class="no">✗</span></td>
+                            <td class="pro-col"><span class="yes">✓</span></td>
+                            <td><span class="yes">✓</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SECURITY -->
+    <section class="sub-section alt">
+        <div class="section-inner">
+            <div class="section-head">
+                <div class="section-label">Security & Privacy</div>
+                <h2 class="section-title">Your files are safe. Always.</h2>
+                <p class="section-subtitle">Confidential documents deserve enterprise-grade protection. We take security
+                    seriously.</p>
+            </div>
+            <div class="security-grid">
+                <div class="sec-card">
+                    <div class="sec-icon" style="background:rgba(99,102,241,0.1);color:#6366f1"><ion-icon
+                            name="shield-checkmark-outline"></ion-icon></div>
+                    <h3>End-to-End Encryption</h3>
+                    <p>All uploads and downloads are protected with 256-bit AES encryption. No one but you can access
+                        your files.</p>
+                </div>
+                <div class="sec-card">
+                    <div class="sec-icon" style="background:rgba(239,68,68,0.1);color:#ef4444"><ion-icon
+                            name="trash-outline"></ion-icon></div>
+                    <h3>Auto-Delete in 24 Hours</h3>
+                    <p>Your files are automatically deleted from our servers within 24 hours. We don't hoard your data.
+                    </p>
+                </div>
+                <div class="sec-card">
+                    <div class="sec-icon" style="background:rgba(34,197,94,0.1);color:#22c55e"><ion-icon
+                            name="cloud-done-outline"></ion-icon></div>
+                    <h3>Secure Cloud Storage</h3>
+                    <p>Files are stored in ISO 27001-certified data centers with redundancy and backups built in.</p>
+                </div>
+                <div class="sec-card">
+                    <div class="sec-icon" style="background:rgba(249,115,22,0.1);color:#f97316"><ion-icon
+                            name="eye-off-outline"></ion-icon></div>
+                    <h3>Zero Data Sharing</h3>
+                    <p>We never sell, share, or analyze your file content. Your documents are yours — period.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="sub-section alt">
+        <div class="section-inner">
+            <div class="section-head" style="text-align:center;">
+                <div class="section-label">FAQ</div>
+                <h2 class="section-title">Questions? Answered.</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-q">Is the 7-day Pro trial actually free?<ion-icon
+                            name="chevron-down-outline"></ion-icon></div>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">Yes. No credit card required. You get full Pro access for 7 days. At
+                            the end, you choose to subscribe or go back to Free. We won't auto-charge you.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Can I cancel my subscription anytime?<ion-icon
+                            name="chevron-down-outline"></ion-icon></div>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">Absolutely. Cancel from your account settings with one click. You keep
+                            Pro access until the end of your billing period.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Are my files stored permanently?<ion-icon name="chevron-down-outline"></ion-icon>
+                    </div>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">No. All uploaded and converted files are automatically deleted from our
+                            servers within 24 hours. We do not store or read your content.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">What payment methods do you accept?<ion-icon
+                            name="chevron-down-outline"></ion-icon></div>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">We accept UPI, all major credit/debit cards (Visa, Mastercard, Amex),
+                            net banking, and PayPal. Payments are processed securely via Razorpay.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">What's the difference between Pro and Business?<ion-icon
+                            name="chevron-down-outline"></ion-icon></div>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">Pro is designed for individual power users — unlimited conversions, no
+                            watermarks, OCR, and cloud integrations. Business adds API access, team management for up to
+                            10 users, custom webhooks, and 24/7 live chat support.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Is there a student or nonprofit discount?<ion-icon
+                            name="chevron-down-outline"></ion-icon></div>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">Yes! Students and verified nonprofits get 40% off Pro. Email us at
+                            support@pdfpro.app with proof of eligibility and we'll send you a discount code within 24
+                            hours.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAYMENT -->
+    <section class="sub-section">
+        <div class="section-inner">
+            <div class="section-head" style="text-align:center;">
+                <div class="section-label">Payment & Billing</div>
+                <h2 class="section-title">Upgrade safely</h2>
+                <p class="section-subtitle" style="margin:0 auto 3rem;">Got a coupon? Enter it below. All plans include
+                    a 7-day money-back guarantee.</p>
+            </div>
+            <div class="payment-box">
+                <div class="coupon-row">
+                    <input type="text" class="coupon-input" placeholder="Enter coupon code (e.g. SAVE30)"
+                        id="coupon-field">
+                    <button class="coupon-btn" onclick="applyCoupon()">Apply Code</button>
+                </div>
+                <div style="text-align:center;font-size:0.82rem;color:var(--text-muted);margin-bottom:1.5rem;">Accepted
+                    payment methods</div>
+                <div class="payment-methods">
+                    <div class="pay-method">💳 Visa</div>
+                    <div class="pay-method">💳 Mastercard</div>
+                    <div class="pay-method">📱 UPI</div>
+                    <div class="pay-method">🏦 NetBanking</div>
+                    <div class="pay-method">🅿️ PayPal</div>
+                </div>
+                <div class="policy-row">
+                    <div class="policy-badge"><ion-icon name="checkmark-circle-outline"></ion-icon> Cancel Anytime</div>
+                    <div class="policy-badge"><ion-icon name="checkmark-circle-outline"></ion-icon> 7-Day Refund</div>
+                    <div class="policy-badge"><ion-icon name="checkmark-circle-outline"></ion-icon> Secure Checkout
+                    </div>
+                    <div class="policy-badge"><ion-icon name="checkmark-circle-outline"></ion-icon> Auto-Renewal Off by
+                        Default</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner">
+        <div style="position:relative;max-width:700px;margin:0 auto;padding:0 1.5rem;">
+            <h2>Start your 7-day free trial</h2>
+            <p>No credit card. No commitment. Full Pro access — yours to try.</p>
+            <div class="cta-btns">
+                <button class="cta-btn-white" onclick="window.location.href='auth.html'">🚀 Start Free Trial</button>
+                <button class="cta-btn-ghost"
+                    onclick="document.querySelector('.plans-grid').scrollIntoView({behavior:'smooth'})">View
+                    Plans</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Billing toggle
+        const monthly = { plus: '20', pro: '199', biz: '799' };
+        const yearly = { plus: '20', pro: '139', biz: '559' };
+
+        document.getElementById('bill-monthly').addEventListener('click', function () {
+            this.classList.add('active');
+            document.getElementById('bill-yearly').classList.remove('active');
+            document.querySelector('.plus-monthly').textContent = monthly.plus;
+            document.querySelector('.pro-monthly').textContent = monthly.pro;
+            document.querySelector('.biz-monthly').textContent = monthly.biz;
+        });
+        document.getElementById('bill-yearly').addEventListener('click', function () {
+            this.classList.add('active');
+            document.getElementById('bill-monthly').classList.remove('active');
+            document.querySelector('.plus-monthly').textContent = yearly.plus;
+            document.querySelector('.pro-monthly').textContent = yearly.pro;
+            document.querySelector('.biz-monthly').textContent = yearly.biz;
+        });
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-q').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.parentElement;
+                const isOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+                if (!isOpen) item.classList.add('open');
+            });
+        });
+
+        // Coupon
+        function applyCoupon() {
+            const val = document.getElementById('coupon-field').value.trim().toUpperCase();
+            const validCodes = { 'SAVE30': '30%', 'STUDENT40': '40%', 'WELCOME20': '20%' };
+            if (validCodes[val]) {
+                alert(`✅ Coupon "${val}" applied! You get ${validCodes[val]} off your first month.`);
+            } else if (val === '') {
+                alert('Please enter a coupon code.');
+            } else {
+                alert(`❌ Coupon "${val}" is invalid or expired.`);
+            }
+        }
+
+        // Initiate PhonePe Payment
+        async function initiatePayment(plan, amountClass) {
+            const amountText = document.querySelector(`.${amountClass}`).textContent;
+            const amount = parseInt(amountText);
+
+            if (amount <= 0) return alert("Invalid amount for payment");
+
+            try {
+                // Determine base URL (handles localhost vs localtunnel)
+                const baseUrl = window.location.origin;
+
+                const response = await fetch(`${baseUrl}/api/payment/initiate`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ plan: plan, amount: amount })
+                });
+
+                const data = await response.json();
+
+                if (data.success && data.url) {
+                    // Redirect to PhonePe payment page
+                    window.location.href = data.url;
+                } else {
+                    alert('Payment initiation failed: ' + (data.error || 'Unknown error'));
+                    console.error('Payment Error:', data);
+                }
+            } catch (error) {
+                console.error('Error initiating payment:', error);
+                alert('Something went wrong connecting to the payment server.');
+            }
+        }
+
+        // Check for payment callback status (handled by server redirect)
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const status = urlParams.get('payment');
+            if (status === 'success') {
+                alert('🎉 Payment Successful! Welcome to your new plan.');
+                // Remove query param
+                window.history.replaceState({}, document.title, window.location.pathname);
+            } else if (status === 'failure') {
+                alert('❌ Payment Failed or Cancelled. Please try again.');
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        });
+    </script>
+</body>
+
+</html>
