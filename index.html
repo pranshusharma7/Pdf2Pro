@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Converter Pro - All-in-One PDF Solution</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Icons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Background Elements -->
+    <div class="ambient-light source-1"></div>
+    <div class="ambient-light source-2"></div>
+
+    <!-- Header -->
+    <header id="main-header">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo" style="display: flex; align-items: center; text-decoration: none;">
+                <img src="image.png" alt="PDF2Pro Logo" class="main-logo-img">
+            </a>
+
+            <nav class="nav-links">
+                <div class="nav-item has-dropdown">
+                    <a href="#tools" class="nav-link">All Tools <ion-icon name="chevron-down-outline"></ion-icon></a>
+                </div>
+                <a href="#ocr" class="nav-link">OCR</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="theme-Toggle" aria-label="Toggle theme">
+                    <ion-icon name="moon-outline"></ion-icon>
+                </button>
+                <div class="divider-v"></div>
+                <!-- Dynamic Auth Buttons -->
+                <a href="auth.html" class="nav-link" id="nav-login-link" style="margin: 0;">Log in</a>
+                <a href="auth.html" class="btn btn-primary btn-sm" id="nav-signup-btn">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-badge">
+                    <ion-icon name="star"></ion-icon> New: AI-Powered OCR & Data Extraction
+                </div>
+
+                <h1 class="hero-heading">
+                    The Complete PDF Toolset<br>
+                    <span class="text-gradient">For Professionals</span>
+                </h1>
+
+                <p class="hero-subtext">
+                    Convert, edit, e-sign, and protect PDF files. The only PDF software you'll ever need. Fast, secure,
+                    and entirely online.
+                </p>
+
+                <div class="hero-cta-group">
+                    <a href="#convert" class="btn btn-primary btn-lg icon-btn">
+                        Start Converting
+                        <ion-icon name="arrow-forward-outline"></ion-icon>
+                    </a>
+                    <a href="#tools" class="btn btn-outline btn-lg icon-btn">
+                        Explore All 35+ Tools
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tool Categories Navigation (Sticky) -->
+        <div class="tools-nav-sticky">
+            <div class="container">
+                <a href="#convert-tools" class="tool-nav-item active">Convert</a>
+                <a href="#image-tools" class="tool-nav-item">Images</a>
+                <a href="#management-tools" class="tool-nav-item">Organize</a>
+                <a href="#security-tools" class="tool-nav-item">Security</a>
+                <a href="#edit-tools" class="tool-nav-item">Edit & Sign</a>
+            </div>
+        </div>
+
+        <!-- TOOLS SECTIONS -->
+        <div class="all-tools-wrapper">
+
+            <!-- 1. Conversion Tools -->
+            <section id="convert-tools" class="tool-category-section">
+                <div class="container">
+                    <div class="category-header">
+                        <div class="cat-icon"><ion-icon name="swap-horizontal-outline"></ion-icon></div>
+                        <h2>Convert from PDF</h2>
+                        <p>Convert PDFs to editable documents</p>
+                    </div>
+                    <div class="tools-grid-dense">
+                        <a href="pdf-to-word.html" class="tool-card-mini">
+                            <ion-icon name="document-text-outline" class="c-blue"></ion-icon>
+                            <div class="mini-content">
+                                <h3>PDF to Word</h3>
+                                <p>Convert PDF to DOCX</p>
+                            </div>
+                        </a>
+                        <a href="pdf-to-excel.html" class="tool-card-mini">
+                            <ion-icon name="grid-outline" class="c-green"></ion-icon>
+                            <div class="mini-content">
+                                <h3>PDF to Excel</h3>
+                                <p>Convert PDF to XLS</p>
+                            </div>
+                        </a>
+                        <a href="pdf-to-ppt.html" class="tool-card-mini">
+                            <ion-icon name="easel-outline" class="c-orange"></ion-icon>
+                            <div class="mini-content">
+                                <h3>PDF to PPT</h3>
+                                <p>Convert PDF to Powerpoint</p>
+                            </div>
+                        </a>
+                        <a href="word-to-pdf.html" class="tool-card-mini">
+                            <ion-icon name="document-outline" class="c-blue"></ion-icon>
+                            <div class="mini-content">
+                                <h3>Word to PDF</h3>
+                                <p>DOCX to PDF</p>
+                            </div>
+                        </a>
+                        <a href="excel-to-pdf.html" class="tool-card-mini">
+                            <ion-icon name="bar-chart-outline" class="c-green"></ion-icon>
+                            <div class="mini-content">
+                                <h3>Excel to PDF</h3>
+                                <p>XLS to PDF</p>
+                            </div>
+                        </a>
+                        <a href="ppt-to-pdf.html" class="tool-card-mini">
+                            <ion-icon name="pie-chart-outline" class="c-orange"></ion-icon>
+                            <div class="mini-content">
+                                <h3>PPT to PDF</h3>
+                                <p>Powerpoint to PDF</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Image Tools -->
+            <section id="image-tools" class="tool-category-section alt-bg">
+                <div class="container">
+                    <div class="category-header">
+                        <div class="cat-icon"><ion-icon name="image-outline"></ion-icon></div>
+                        <h2>PDF & Images</h2>
+                        <p>High quality image extraction and conversion</p>
+                    </div>
+                    <div class="tools-grid-dense">
+                        <a href="pdf-to-jpg.html" class="tool-card-mini">
+                            <ion-icon name="images-outline" class="c-purple"></ion-icon>
+                            <div class="mini-content">
+                                <h3>PDF to JPG</h3>
+                                <p>Extract images or pages</p>
+                            </div>
+                        </a>
+                        <a href="pdf-to-png.html" class="tool-card-mini">
+                            <ion-icon name="image-outline" class="c-purple"></ion-icon>
+                            <div class="mini-content">
+                                <h3>PDF to PNG</h3>
+                                <p>High quality conversion</p>
+                            </div>
+                        </a>
+                        <a href="jpg-to-pdf.html" class="tool-card-mini">
+                            <ion-icon name="document-attach-outline" class="c-purple"></ion-icon>
+                            <div class="mini-content">
+                                <h3>JPG to PDF</h3>
+                                <p>Convert images to PDF</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Management & Compress -->
+            <section id="management-tools" class="tool-category-section">
+                <div class="container">
+                    <div class="category-header">
+                        <div class="cat-icon"><ion-icon name="library-outline"></ion-icon></div>
+                        <h2>Organize & Optimize</h2>
+                        <p>Merge, split, compress and fix your PDFs</p>
+                    </div>
+                    <div class="tools-grid-dense">
+                        <a href="merge-pdf.html" class="tool-card-mini">
+                            <ion-icon name="git-merge-outline" class="c-red"></ion-icon>
+                            <div class="mini-content">
+                                <h3>Merge PDF</h3>
+                                <p>Combine multiple files</p>
+                            </div>
+                        </a>
+                        <a href="split-pdf.html" class="tool-card-mini">
+                            <ion-icon name="cut-outline" class="c-red"></ion-icon>
+                            <div class="mini-content">
+                                <h3>Split PDF</h3>
+                                <p>Separate pages</p>
+                            </div>
+                        </a>
+                        <a href="compress-pdf.html" class="tool-card-mini">
+                            <ion-icon name="contract-outline" class="c-teal"></ion-icon>
+                            <div class="mini-content">
+                                <h3>Compress PDF</h3>
+                                <p>Reduce file size</p>
+                            </div>
+                        </a>
+                        <a href="#" class="tool-card-mini">
+                            <ion-icon name="layers-outline" class="c-red"></ion-icon>
+                            <div class="mini-content">
+                                <h3>Reorder Pages</h3>
+                                <p>Sort pages easily</p>
+                            </div>
+                        </a>
+                        <a href="#" class="tool-card-mini">
+                            <ion-icon name="trash-outline" class="c-red"></ion-icon>
+                            <div class="mini-content">
+                                <h3>Remove Pages</h3>
+                                <p>Delete specific pages</p>
+                            </div>
+                        </a>
+                        <a href="#" class="tool-card-mini">
+                            <ion-icon name="refresh-outline" class="c-teal"></ion-icon>
+                            <div class="mini-content">
+                                <h3>Rotate PDF</h3>
+                                <p>Fix page orientation</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Security & Edit -->
+            <section id="security-tools" class="tool-category-section alt-bg">
+                <div class="container">
+                    <div class="category-header">
+                        <div class="cat-icon"><ion-icon name="shield-checkmark-outline"></ion-icon></div>
+                        <h2>Security & Edits</h2>
+                        <p>Protect, sign, and edit your documents</p>
+                    </div>
+                    <div class="tools-grid-dense">
+                        <a href="protect-pdf.html" class="tool-card-mini">
+                            <ion-icon name="lock-closed-outline" class="c-dark"></ion-icon>
+                            <div class="mini-content">
+                                <h3>Protect PDF</h3>
+                                <p>Encrypt with password</p>
+                            </div>
+                        </a>
+                        <a href="unlock-pdf.html" class="tool-card-mini">
+                            <ion-icon name="lock-open-outline" class="c-dark"></ion-icon>
+                            <div class="mini-content">
+                                <h3>Unlock PDF</h3>
+                                <p>Remove password</p>
+                            </div>
+                        </a>
+                        <a href="edit-pdf.html" class="tool-card-mini">
+                            <ion-icon name="create-outline" class="c-yellow"></ion-icon>
+                            <div class="mini-content">
+                                <h3>Edit PDF</h3>
+                                <p>Add text & shapes</p>
+                            </div>
+                        </a>
+                        <a href="sign-pdf.html" class="tool-card-mini">
+                            <ion-icon name="pencil-outline" class="c-yellow"></ion-icon>
+                            <div class="mini-content">
+                                <h3>Sign PDF</h3>
+                                <p>Add signature</p>
+                            </div>
+                        </a>
+                        <a href="#" class="tool-card-mini">
+                            <ion-icon name="water-outline" class="c-blue"></ion-icon>
+                            <div class="mini-content">
+                                <h3>Watermark</h3>
+                                <p>Add image/text stamp</p>
+                            </div>
+                        </a>
+                        <a href="#" class="tool-card-mini">
+                            <ion-icon name="list-outline" class="c-blue"></ion-icon>
+                            <div class="mini-content">
+                                <h3>Page Numbers</h3>
+                                <p>Add pagination</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. Advanced / OCR -->
+            <section id="ocr" class="tool-category-section">
+                <div class="container">
+                    <div class="banner-box">
+                        <div class="banner-content">
+                            <h2><ion-icon name="scan-circle-outline"></ion-icon> Optical Character Recognition (OCR)
+                            </h2>
+                            <p>Convert scanned PDFs and images into editable Word and Text files. Support for 20+
+                                languages.</p>
+                            <button class="btn btn-primary">Try OCR Tool</button>
+                        </div>
+                        <div class="banner-badge">PRO</div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="plans-section" id="pricing">
+                <div class="container" style="text-align: center;">
+                    <br><br>
+                    <div class="section-header">
+                        <h2 class="section-title">Transparent Pricing</h2>
+                        <p class="section-subtitle">Start free. Upgrade when you're ready. Cancel anytime.</p>
+                    </div>
+
+                    <div class="billing-toggle" style="margin: 0 auto 3.5rem; display: inline-flex;">
+                        <button class="bill-opt active" id="idx-bill-monthly">Monthly</button>
+                        <button class="bill-opt" id="idx-bill-yearly">Yearly <span class="save-badge">Save
+                                30%</span></button>
+                    </div>
+                </div>
+
+                <div class="plans-grid">
+                    <!-- Free -->
+                    <div class="plan-card">
+                        <div class="plan-name">Free</div>
+                        <div class="plan-price"><span class="currency">₹</span><span class="amount">0</span><span
+                                class="period">/mo</span></div>
+                        <div class="plan-desc">Perfect for occasional use. No card needed.</div>
+                        <ul class="plan-features">
+                            <li><span class="check yes">✓</span> 5 conversions per day</li>
+                            <li><span class="check yes">✓</span> 10 MB file size limit</li>
+                            <li><span class="check yes">✓</span> Basic PDF tools</li>
+                            <li><span class="check no">✗</span> Watermark on output</li>
+                            <li><span class="check no">✗</span> No batch upload</li>
+                            <li><span class="check no">✗</span> No OCR</li>
+                            <li><span class="check no">✗</span> Standard speed</li>
+                        </ul>
+                        <button class="plan-cta outline" onclick="window.location.href='auth.html'">Get Started
+                            Free</button>
+                    </div>
+                    <!-- Plus -->
+                    <div class="plan-card">
+                        <div class="plan-name">Plus</div>
+                        <div class="plan-price"><span class="currency">₹</span><span
+                                class="amount idx-plus-monthly">20</span><span class="period">/mo</span></div>
+                        <div class="plan-desc">Great for students and light users.</div>
+                        <ul class="plan-features">
+                            <li><span class="check yes">✓</span> 50 conversions per day</li>
+                            <li><span class="check yes">✓</span> 50 MB file size limit</li>
+                            <li><span class="check yes">✓</span> No watermark</li>
+                            <li><span class="check yes">✓</span> Basic PDF tools</li>
+                            <li><span class="check no">✗</span> No batch upload</li>
+                            <li><span class="check no">✗</span> No OCR</li>
+                            <li><span class="check no">✗</span> Standard speed</li>
+                        </ul>
+                        <button class="plan-cta outline" onclick="initiatePayment('Plus', 'idx-plus-monthly')">Get
+                            Plus</button>
+                    </div>
+                    <!-- Pro -->
+                    <div class="plan-card popular">
+                        <div class="popular-tag">⭐ Most Popular</div>
+                        <div class="plan-name">Pro</div>
+                        <div class="plan-price"><span class="currency">₹</span><span
+                                class="amount idx-pro-monthly">199</span><span class="period">/mo</span></div>
+                        <div class="plan-desc">For professionals who need power and speed.</div>
+                        <ul class="plan-features">
+                            <li><span class="check yes">✓</span> Unlimited conversions</li>
+                            <li><span class="check yes">✓</span> 500 MB file size limit</li>
+                            <li><span class="check yes">✓</span> No watermark</li>
+                            <li><span class="check yes">✓</span> Priority processing</li>
+                            <li><span class="check yes">✓</span> Batch upload (50 files)</li>
+                            <li><span class="check yes">✓</span> AI OCR (20+ languages)</li>
+                            <li><span class="check yes">✓</span> Cloud integrations</li>
+                        </ul>
+                        </ul>
+                        <button class="plan-cta primary" onclick="initiatePayment('Pro', 'idx-pro-monthly')">Start 7-Day
+                            Free
+                            Trial</button>
+                    </div>
+                    <!-- Business -->
+                    <div class="plan-card">
+                        <div class="plan-name">Business</div>
+                        <div class="plan-price"><span class="currency">₹</span><span
+                                class="amount idx-biz-monthly">799</span><span class="period">/mo</span></div>
+                        <div class="plan-desc">For teams that need automation and API access.</div>
+                        <ul class="plan-features">
+                            <li><span class="check yes">✓</span> Everything in Pro</li>
+                            <li><span class="check yes">✓</span> 1 GB file size limit</li>
+                            <li><span class="check yes">✓</span> Batch upload (200 files)</li>
+                            <li><span class="check yes">✓</span> REST API access</li>
+                            <li><span class="check yes">✓</span> Team workspace (10 seats)</li>
+                            <li><span class="check yes">✓</span> Priority support 24/7</li>
+                            <li><span class="check yes">✓</span> Custom webhooks</li>
+                        </ul>
+                        </ul>
+                        <button class="plan-cta outline"
+                            onclick="initiatePayment('Business', 'idx-biz-monthly')">Contact
+                            Sales</button>
+                    </div>
+                </div>
+            </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-brand-logo" style="margin-bottom: 1rem;">
+                        <img src="image.png" alt="PDF2Pro" class="footer-logo-img">
+                    </div>
+                    <p>The smartest way to manage docs.</p>
+                    <div class="social-links">
+                        <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+                    </div>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Internal Tools</h4>
+                    <a href="#">PDF to Word</a>
+                    <a href="#">Merge PDF</a>
+                    <a href="#">Compress</a>
+                    <a href="#">OCR</a>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Company</h4>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Privacy</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 PDF Pro.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Payment Modal -->
+    <div class="modal-overlay" id="payment-modal-overlay">
+        <div class="payment-modal glass-panel">
+            <button class="close-modal"><ion-icon name="close-outline"></ion-icon></button>
+            <div class="modal-header">
+                <div class="icon-circle"><ion-icon name="diamond-outline"></ion-icon></div>
+                <h2>Upgrade to Pro</h2>
+                <p>Unlock OCR, Unlimited Tools & No Ads.</p>
+            </div>
+            <form id="payment-form">
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="name@email.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Card Information</label>
+                    <div class="card-input-container">
+                        <input type="text" placeholder="0000 0000 0000 0000" class="card-number" maxlength="19">
+                        <div class="card-meta">
+                            <input type="text" placeholder="MM/YY" maxlength="5">
+                            <input type="text" placeholder="CVC" maxlength="3">
+                        </div>
+                        <div class="card-icon"><ion-icon name="card-outline"></ion-icon></div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary full-width btn-lg">Pay $9.00</button>
+            </form>
+            <div class="secure-badge"><ion-icon name="lock-closed"></ion-icon> SSL Secure</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        const idxMonthly = { plus: '20', pro: '199', biz: '799' };
+        const idxYearly = { plus: '20', pro: '139', biz: '559' };
+
+        document.getElementById('idx-bill-monthly').addEventListener('click', function () {
+            this.classList.add('active');
+            document.getElementById('idx-bill-yearly').classList.remove('active');
+            document.querySelector('.idx-plus-monthly').textContent = idxMonthly.plus;
+            document.querySelector('.idx-pro-monthly').textContent = idxMonthly.pro;
+            document.querySelector('.idx-biz-monthly').textContent = idxMonthly.biz;
+        });
+        document.getElementById('idx-bill-yearly').addEventListener('click', function () {
+            this.classList.add('active');
+            document.getElementById('idx-bill-monthly').classList.remove('active');
+            document.querySelector('.idx-plus-monthly').textContent = idxYearly.plus;
+            document.querySelector('.idx-pro-monthly').textContent = idxYearly.pro;
+            document.querySelector('.idx-biz-monthly').textContent = idxYearly.biz;
+        });
+
+        // Initiate PhonePe Payment
+        async function initiatePayment(plan, amountClass) {
+            const amountText = document.querySelector(`.${amountClass}`).textContent;
+            const amount = parseInt(amountText);
+
+            if (amount <= 0) return alert("Invalid amount for payment");
+
+            try {
+                const baseUrl = window.location.origin;
+
+                const response = await fetch(`${baseUrl}/api/payment/initiate`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ plan: plan, amount: amount })
+                });
+
+                const data = await response.json();
+
+                if (data.success && data.url) {
+                    window.location.href = data.url;
+                } else {
+                    alert('Payment initiation failed: ' + (data.error || 'Unknown error'));
+                    console.error('Payment Error:', data);
+                }
+            } catch (error) {
+                console.error('Error initiating payment:', error);
+                alert('Something went wrong connecting to the payment server.');
+            }
+        }
+    </script>
+</body>
+
+</html>
