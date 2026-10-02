@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="3;url=index.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting... – PDF2Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #0f1117;
+            color: #e8eaf6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .card {
+            background: #1a1d27;
+            border: 1px solid rgba(255, 255, 255, .1);
+            border-radius: 24px;
+            padding: 60px 48px;
+            max-width: 440px;
+            width: 90%;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, .5);
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            object-fit: contain;
+            margin: 0 auto 24px;
+            display: block;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #4285f4, #9b59b6, #ea4335);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            font-size: .92rem;
+            color: #9fa8c0;
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: #fff;
+            font-family: inherit;
+            font-size: .9rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all .2s;
+            box-shadow: 0 4px 18px rgba(79, 70, 229, .4);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(79, 70, 229, .55);
+        }
+
+        .spinner {
+            width: 36px;
+            height: 36px;
+            border: 3px solid rgba(255, 255, 255, .08);
+            border-top-color: #4f46e5;
+            border-radius: 50%;
+            animation: spin 0.9s linear infinite;
+            margin: 0 auto 24px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <img src="image.png" alt="PDF2Pro Logo" class="logo">
+        <div class="spinner"></div>
+        <h1>Redirecting to PDF2Pro</h1>
+        <p>The AI Chat feature has been removed.<br>You will be redirected to the converter tools automatically.</p>
+        <a href="index.html" class="btn">
+            ⚡ Go to PDF Converter
+        </a>
+    </div>
+</body>
+
+</html>
