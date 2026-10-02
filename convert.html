@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal File Converter - PDF Pro</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Icons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+    <!-- Background Elements -->
+    <div class="ambient-light source-1"></div>
+    <div class="ambient-light source-2"></div>
+
+    <!-- Header -->
+    <header id="main-header">
+        <div class="container nav-container">
+                                                <a href="index.html" class="brand-logo" style="display: flex; align-items: center; text-decoration: none;">
+                <img src="image.png" alt="PDF2Pro Logo" class="main-logo-img">
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html#tools" class="nav-link">All Tools</a>
+                <a href="index.html#pricing" class="nav-link">Pricing</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">
+                    <ion-icon name="moon-outline"></ion-icon>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="conversion-page-main">
+        <div class="container conversion-layout">
+
+            <!-- Left Ad Column -->
+            <aside class="ad-column left-ad">
+                <div class="ad-space glass-panel">
+                    <span class="ad-label">Advertisement</span>
+                    <!-- Google AdSense Placeholder -->
+                    <div class="mock-ad vertical">
+                        <ion-icon name="megaphone-outline"></ion-icon>
+                        <p>Google AdSense<br>300x600</p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Center Content: The Converter -->
+            <section class="converter-center">
+                <div class="converter-header">
+                    <div class="tool-badge" id="dynamic-tool-badge">
+                        <ion-icon name="swap-horizontal-outline"></ion-icon> Universal Converter
+                    </div>
+                    <h1 class="hero-heading" id="dynamic-tool-title">
+                        Convert <span class="text-gradient">Any File</span>
+                    </h1>
+                    <p class="hero-subtext" id="dynamic-tool-desc">
+                        Drag and drop your file below to convert it into high-quality formats instantly. Fast, secure,
+                        and free.
+                    </p>
+                </div>
+
+                <div class="converter-workspace glass-panel">
+                    <!-- Step 1: Upload (Default State) -->
+                    <div class="upload-zone" id="upload-zone">
+                        <div class="zone-glow"></div>
+                        <div class="upload-icon-container">
+                            <ion-icon name="cloud-upload-outline" class="upload-icon"></ion-icon>
+                            <ion-icon name="document-outline" class="float-icon doc1"></ion-icon>
+                            <ion-icon name="image-outline" class="float-icon doc2"></ion-icon>
+                        </div>
+                        <h3>Choose files or drag & drop</h3>
+                        <p>Supported: PDF, Word, Excel, PPT, JPG, PNG (Max 50MB)</p>
+
+                        <div class="upload-actions">
+                            <button class="btn btn-primary btn-lg"
+                                onclick="document.getElementById('file-input').click()">
+                                Select Files
+                            </button>
+                            <div class="cloud-upload-options">
+                                <button class="btn btn-icon-only" title="Google Drive"><ion-icon name="logo-google"
+                                        style="color: #4285F4;"></ion-icon></button>
+                                <button class="btn btn-icon-only" title="Dropbox"><ion-icon name="logo-dropbox"
+                                        style="color: #0061FF;"></ion-icon></button>
+                            </div>
+                        </div>
+                        <input type="file" id="file-input" hidden multiple>
+                    </div>
+
+                    <!-- Step 2: Options & Processing (Hidden by default) -->
+                    <div class="conversion-active-state" id="conversion-state" style="display: none;">
+
+                        <!-- File List -->
+                        <div class="selected-files-list" id="file-list-container">
+                            <!-- Dynamic File Items go here -->
+                        </div>
+
+                        <!-- Target Format Selector (Removed for specific conversion pages) -->
+                        <div class="conversion-options-bar">
+                            <span class="options-label" id="dynamic-conversion-label"
+                                style="font-size: 1.1rem; color: var(--text-main);">Ready to convert</span>
+                            <button class="btn btn-primary btn-lg convert-trigger-btn" id="start-conversion-btn"
+                                style="margin-left: auto;">
+                                Convert Now <ion-icon name="flash-outline"></ion-icon>
+                            </button>
+                        </div>
+
+                        <!-- Progress Bar (Hidden initially) -->
+                        <div class="progress-container" id="progress-container" style="display: none;">
+                            <div class="progress-details">
+                                <span class="status-text">Processing your file...</span>
+                                <span class="percentage" id="progress-percent">0%</span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-fill" id="progress-bar"></div>
+                            </div>
+                        </div>
+
+                        <!-- Success State (Hidden initially) -->
+                        <div class="success-container" id="success-container" style="display: none;">
+                            <div class="success-icon-wrap">
+                                <ion-icon name="checkmark-circle"></ion-icon>
+                            </div>
+                            <h3>Converted!</h3>
+                            <div class="success-actions">
+                                <a id="download-result-btn" href="#" class="btn btn-primary btn-lg shadow-glow"
+                                    download="converted-file.pdf">
+                                    <ion-icon name="download-outline"></ion-icon> Download
+                                </a>
+                                <button class="btn btn-outline shadow-glow" id="preview-result-btn" style="border-color: var(--primary-500); color: var(--primary-600);">
+                                    <ion-icon name="eye-outline"></ion-icon> Preview
+                                </button>
+                                <button class="btn btn-outline" id="convert-another-btn">
+                                    Convert Another
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Top/Bottom Center Ad Space -->
+                <div class="ad-space glass-panel horizontal-ad-banner">
+                    <span class="ad-label">Sponsored by Partners</span>
+                    <div class="mock-ad horizontal">
+                        <p>Your Company Ad Here<br>728x90</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Ad Column -->
+            <aside class="ad-column right-ad">
+                <div class="ad-space glass-panel">
+                    <span class="ad-label">Advertisement</span>
+                    <!-- Google AdSense Placeholder -->
+                    <div class="mock-ad vertical">
+                        <ion-icon name="megaphone-outline"></ion-icon>
+                        <p>Google AdSense<br>300x600</p>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer" style="padding-top: 3rem; margin-top: 2rem;">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none;">
+                <p>&copy; 2024 PDF Pro Inc.</p>
+                <div class="footer-links" style="display: flex; gap: 1.5rem;">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Specific Converter Page Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Dynamic Titles from URL Params
+            const urlParams = new URLSearchParams(window.location.search);
+            const toolId = urlParams.get('tool');
+
+            if (toolId) {
+                const titleMap = {
+                    'pdf-to-word': { title: 'PDF to <span class="text-gradient">Word</span>', desc: 'Convert PDF files to editable Word documents instantly.', icon: 'document-text-outline' },
+                    'word-to-pdf': { title: 'Word to <span class="text-gradient">PDF</span>', desc: 'Securely convert DOCX files into high-quality PDFs.', icon: 'document-outline' },
+                    'pdf-to-jpg': { title: 'PDF to <span class="text-gradient">JPG</span>', desc: 'Extract images or save PDF pages as high-quality JPGs.', icon: 'images-outline' },
+                    'merge-pdf': { title: '<span class="text-gradient">Merge</span> PDF', desc: 'Combine multiple PDF files into one clean document.', icon: 'git-merge-outline' }
+                };
+
+                const mapped = titleMap[toolId];
+                if (mapped) {
+                    document.getElementById('dynamic-tool-title').innerHTML = mapped.title;
+                    document.getElementById('dynamic-tool-desc').innerText = mapped.desc;
+                    document.querySelector('#dynamic-tool-badge ion-icon').setAttribute('name', mapped.icon);
+                    document.querySelector('#dynamic-tool-badge').innerHTML = `<ion-icon name="${mapped.icon}"></ion-icon> ${mapped.title.replace(/<[^>]*>?/gm, '')}`;
+                    document.title = mapped.title.replace(/<[^>]*>?/gm, '') + " - PDF Pro";
+
+                    // Update the label in the conversion bar to make it feel specific
+                    const actionTarget = mapped.title.replace(/<[^>]*>?/gm, '');
+                    document.getElementById('dynamic-conversion-label').innerHTML = `Click convert to get your <b>${actionTarget}</b>`;
+                }
+            } else {
+                // Fallback if no tool specified
+                document.getElementById('dynamic-conversion-label').innerHTML = `Ready to convert your files.`;
+            }
+
+            let currentUploadFiles = []; // Store the actual File objects
+
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                uploadZone.addEventListener(eventName, preventDefaults, false);
+            });
+
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            ['dragenter', 'dragover'].forEach(eventName => {
+                uploadZone.addEventListener(eventName, () => {
+                    uploadZone.classList.add('drag-active');
+                }, false);
+            });
+
+            ['dragleave', 'drop'].forEach(eventName => {
+                uploadZone.addEventListener(eventName, () => {
+                    uploadZone.classList.remove('drag-active');
+                }, false);
+            });
+
+            uploadZone.addEventListener('drop', (e) => {
+                let dt = e.dataTransfer;
+                handleFiles(dt.files);
+            });
+
+            fileInput.addEventListener('change', function () {
+                handleFiles(this.files);
+            });
+
+            function handleFiles(files) {
+                if (files.length > 0) {
+                    currentUploadFiles = Array.from(files);
+
+                    // Transition to step 2
+                    uploadZone.style.display = 'none';
+                    conversionState.style.display = 'block';
+
+                    fileListContainer.innerHTML = ''; // clear
+
+                    // Display mock UI for uploaded file
+                    currentUploadFiles.forEach((file, index) => {
+                        const sizeMB = (file.size / (1024 * 1024)).toFixed(2);
+                        const isPdf = file.type === 'application/pdf';
+                        const isImage = file.type.startsWith('image/');
+                        const iconName = isPdf ? 'document-text' : (isImage ? 'image' : 'document');
+                        const iconColor = isPdf ? '#ef4444' : (isImage ? '#10b981' : '#6366f1');
+
+                        let itemHTML = `
+                            <div class="selected-file-item" data-index="${index}">
+                                <div class="file-info-col">
+                                    <div class="file-icon" id="file-icon-${index}" style="color: ${iconColor}; background-color: ${iconColor}15;">
+                                        <ion-icon name="${iconName}"></ion-icon>
+                                    </div>
+                                    <div class="file-details">
+                                        <h4>${file.name}</h4>
+                                        <p>${sizeMB} MB</p>
+                                    </div>
+                                </div>
+                                <button class="remove-file-btn" onclick="resetUploader()">
+                                    <ion-icon name="close-outline"></ion-icon>
+                                </button>
+                            </div>
+                         `;
+                        fileListContainer.insertAdjacentHTML('beforeend', itemHTML);
+
+                        // Generate thumbnail if image
+                        if (isImage) {
+                            const reader = new FileReader();
+                            reader.onload = function(e) {
+                                const iconDiv = document.getElementById(`file-icon-${index}`);
+                                if (iconDiv) {
+                                    iconDiv.style.backgroundImage = `url(${e.target.result})`;
+                                    iconDiv.innerHTML = ''; // Remove ion-icon
+                                }
+                            };
+                            reader.readAsDataURL(file);
+                        }
+                    });
+                }
+            }
+
+            // Expose reset globally for inline handler
+            window.resetUploader = function () {
+                currentUploadFiles = [];
+                uploadZone.style.display = 'flex';
+                conversionState.style.display = 'none';
+                fileInput.value = ''; // clear
+                document.getElementById('progress-container').style.display = 'none';
+                document.getElementById('success-container').style.display = 'none';
+                document.querySelector('.conversion-options-bar').style.display = 'flex';
+                document.getElementById('progress-bar').style.width = '0%';
+                document.getElementById('progress-percent').innerText = '0%';
+                document.querySelector('.status-text').innerText = 'Processing your file...';
+            };
+
+            // 3. Conversion Process (Real API vs Mock)
+            document.getElementById('start-conversion-btn').addEventListener('click', async () => {
+                if (currentUploadFiles.length === 0) return;
+
+                const optBar = document.querySelector('.conversion-options-bar');
+                const progCont = document.getElementById('progress-container');
+                const progBar = document.getElementById('progress-bar');
+                const progText = document.getElementById('progress-percent');
+                const statusText = document.querySelector('.status-text');
+                const succCont = document.getElementById('success-container');
+
+                optBar.style.display = 'none';
+                progCont.style.display = 'block';
+
+                // --- REAL API LOGIC ---
+                statusText.innerHTML = 'Converting now<span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>';
+
+                // Simple simulated progress while we wait for the real fetch to return
+                let progress = 10;
+                progBar.style.width = `${progress}%`;
+                progText.innerText = `${progress}%`;
+
+                const progressInterval = setInterval(() => {
+                    if (progress < 85) {
+                        progress += Math.random() * 5;
+                        progBar.style.width = `${progress}%`;
+                        progText.innerText = `${Math.round(progress)}%`;
+                    }
+                }, 500);
+
+                try {
+                    const formData = new FormData();
+                    currentUploadFiles.forEach(file => {
+                        formData.append('files', file);
+                    });
+
+                    const baseUrl = window.location.origin;
+                    const response = await fetch(`${baseUrl}/api/convert/${toolId}`, {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    const data = await response.json();
+                    clearInterval(progressInterval);
+
+                    if (data.success && data.data.Files && data.data.Files.length > 0) {
+                        // API Success
+                        progBar.style.width = `100%`;
+                        progText.innerText = `100%`;
+
+                        const resultFileUrl = data.data.Files[0].Url;
+                        const resultFileName = data.data.Files[0].FileName;
+
+                        const downloadBtn = document.getElementById('download-result-btn');
+                        downloadBtn.href = resultFileUrl;
+                        downloadBtn.setAttribute('download', resultFileName);
+
+                        const previewBtn = document.getElementById('preview-result-btn');
+                        if (previewBtn) {
+                            previewBtn.onclick = () => {
+                                window.open(resultFileUrl, '_blank');
+                            };
+                        }
+
+                        setTimeout(() => {
+                            progCont.style.display = 'none';
+                            succCont.style.display = 'flex';
+                            gsap.fromTo(".success-icon-wrap ion-icon",
+                                { scale: 0, rotation: -180 },
+                                { scale: 1, rotation: 0, duration: 0.6, ease: "back.out(1.7)" }
+                            );
+                        }, 500);
+                    } else {
+                        throw new Error(data.error || "Unknown API Error");
+                    }
+                } catch (error) {
+                    clearInterval(progressInterval);
+                    statusText.innerText = 'Error processing files!';
+                    statusText.style.color = '#ef4444';
+                    console.error('API Conversion Error:', error);
+                    alert("API Error: Maybe the secret isn't set backend? Check console.");
+                    resetUploader();
+                }
+            });
+
+            document.getElementById('convert-another-btn').addEventListener('click', resetUploader);
+        });
+    </script>
+</body>
+
+</html>
